@@ -2,6 +2,13 @@
 
 [![Build Status](https://travis-ci.com/shadowsocks/shadowsocks-libev.svg?branch=master)](https://travis-ci.com/shadowsocks/shadowsocks-libev) [![Snap Status](https://snapcraft.io/shadowsocks-libev/badge.svg)](https://snapcraft.io/shadowsocks-libev)
 
+---
+This is an atempt to update pcre to pcre2 in shadowsocks-libev.
+This fork only targets FreeBSD, the build files for other platforms have been
+removed and there is no guarantee that this will run/compile on any other 
+platform.
+---
+
 ## Intro
 
 [Shadowsocks-libev](https://shadowsocks.org) is a lightweight secured SOCKS5

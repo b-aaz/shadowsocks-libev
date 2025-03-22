@@ -20,11 +20,17 @@ AC_DISABLE_STATIC
 AC_DISABLE_SHARED
 LT_INIT([dlopen])
 
-dnl Check for pcre library
-TS_CHECK_PCRE
-if test "x${enable_pcre}" != "xyes"; then
-  AC_MSG_ERROR([Cannot find pcre library. Configure --with-pcre=DIR])
-fi
+build_fbsd="no"
+AC_CANONICAL_HOST	
+case "${host_os}" in 
+	freebsd*)
+		build_fbsd="yes"
+	;;
+esac
+AM_CONDITIONAL([IS_FBSD],[test "$build_fbsd" = "yes"])
+AM_COND_IF([IS_FBSD],[ADD_FBSD_PREFIX])
+
+AC_CHECK_LIB([pcre2-8], [pcre2_compile_8], [LIBS="-lpcre2-8 $LIBS"], [AC_MSG_ERROR([Couldn't find pcre2.])])
 
 dnl Checks for using shared libraries from system
 AC_ARG_ENABLE(
