@@ -41,6 +41,7 @@ typedef struct rule {
 
     /* Runtime fields */
     pcre2_code *pattern_re;
+    pcre2_match_data * match_data;
 
     struct cork_dllist_item entries;
 } rule_t;
